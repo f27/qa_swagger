@@ -1,4 +1,12 @@
 {
+  "rules" : {
+    "status": {
+      "enable": true,
+      "ignore": ["400","500"],
+      "filter": ["200"]
+    }
+  },
+
   "writers": {
     "html": {
       "locale": "en",
