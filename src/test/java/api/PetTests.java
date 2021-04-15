@@ -39,6 +39,7 @@ public class PetTests {
                 .body("code", equalTo(1))
                 .body("type", equalTo("error"))
                 .body("message", equalTo("Pet not found"));
+
     }
 
 }
