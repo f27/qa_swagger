@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PetTests {
     @Test
-    void petCreationTest() {
+    void petCreationAndUpdateTest() {
         final PetModel pet = new PetModel();
         pet.setName("chappyHa");
         pet.setStatus("available");
@@ -28,6 +28,23 @@ public class PetTests {
                 .then()
                 .statusCode(200)
                 .body("name", equalTo(createdPet.getName()));
+
+        pet.setName("Cacao");
+        pet.setId(createdPet.getId());
+
+        final PetModel updatedPet = given(spec)
+                .body(pet)
+                .put(PET.getPath())
+                .then()
+                .statusCode(200)
+                .extract()
+                .as(PetModel.class);
+
+        given(spec)
+                .get(PET.addPath("/{id}"), updatedPet.getId())
+                .then()
+                .statusCode(200)
+                .body("name", equalTo(pet.getName()));
     }
 
     @Test
