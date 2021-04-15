@@ -9,7 +9,7 @@ def swaggerVersion = "1.3.5",
 
 ext {
     coverageDownloadUrl = "https://dl.bintray.com/viclovsky/maven/com/github/viclovsky/swagger/coverage/swagger-coverage-commandline/${swaggerVersion}/swagger-coverage-commandline-${swaggerVersion}.zip"
-    coverageCommandline = "./.coverage/swagger-coverage-commandline-${swaggerVersion}/bin/swagger-coverage-commandline.bat"
+    coverageCommandline = "./.coverage/swagger-coverage-commandline-${swaggerVersion}/bin/swagger-coverage-commandline"
     swaggerDownloadUrl = "https://petstore.swagger.io/v2/swagger.json"
 
     coverageConfiguration = './coverage/configuration.json'
